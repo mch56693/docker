@@ -2,9 +2,15 @@
 
 [TOC]
 
+------
+
 #### *Volúmenes*
 
 1. Crea un volumen docker que se llame miweb.
+
+   ```bash
+   $ docker volume cerate nombre_volumen
+   ```
 
    ![image-20240202092246259](Docker 3 - Almacenamiento.assets/image-20240202092246259.png)
 
@@ -13,39 +19,57 @@
 2. Crea un contenedor desde la imagen php:7.4-apache donde montes en el directorio /var/www/html (que sabemos que es el DocumentRoot del servidor que nos ofrece esa
    imagen) el volumen docker que has creado.
 
-   
+   ```bash
+   $ docker run -d -p 80:80 -v nombre_contenedor:/var/www/html --name nombre_contenedor php:7.4-apache
+   ```
+
+   ![ej2](Docker 3 - Almacenamiento.assets/ej2.png)
 
    
 
 3. Utiliza el comando docker cp para copiar un fichero index.html en el directorio /var/www/html .
 
-   
+   ```bash
+   $ docker cp /ruta/index.html nombre_contenedor:/var/www/html/
+   ```
+
+   ![ej3](Docker 3 - Almacenamiento.assets/ej3.png)
+
+   ![ej3.1](Docker 3 - Almacenamiento.assets/ej3.1.png)
 
    
 
 4. Accede al contenedor desde el navegador para ver la información ofrecida por el fichero index.html .
 
-   
+   ![ej4](Docker 3 - Almacenamiento.assets/ej4.png)
 
    
 
 5. Borra el contenedor.
 
-   
+   ```bash
+   $ docker rm -f nombre_volumen
+   ```
+
+   ![ej5](Docker 3 - Almacenamiento.assets/ej5.png)
 
    
 
 6. Crea un nuevo contenedor y monta el mismo volumen como en el ejercicio anterior.
 
-   
+   ```bash
+   $ docker run -d -p 80:80 -v nombre_contenedor:/var/www/html --name nombre_contenedor php:7.4-apache
+   ```
+
+   ![ej6](Docker 3 - Almacenamiento.assets/ej6.png)
 
    
 
 7. Accede al contenedor desde el navegador para ver la información ofrecida por el fichero index.html . ¿Seguía existiendo ese fichero?
 
-   
+   ![ej7](Docker 3 - Almacenamiento.assets/ej7.png)
 
-
+------
 
 #### *Bind mount*
 
