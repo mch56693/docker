@@ -64,8 +64,8 @@ $ docker ps -a
 
 
 ```bash
-$ docker stop 99522529f430
-$ docker stop 4539c4657e12
+$ docker stop container_id1
+$ docker stop container_id2
 ```
 
 ![ej2.5](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.5.png)
@@ -73,7 +73,7 @@ $ docker stop 4539c4657e12
 
 
 ```bash
-$ docker start 77d77748f883
+$ docker start container_id3
 ```
 
 ![ej2.6](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.6.png)
@@ -92,6 +92,8 @@ $ docker start 77d77748f883
 $ docker network create red_wp
 ```
 
+![ej3.1](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej3.1.png)
+
 
 
 ```bash
@@ -100,8 +102,8 @@ $ docker run -d --name servidor_mysql \
 				-v /opt/mysql_wp:/var/lib/mysql \
 				-e MYSQL_DATABASE=bd_wp \
 				-e MYSQL_USER=user_wp \
-				-e MYSQL_PASSWORD=asdasd \
-				-e MYSQL_ROOT_PASSWORD=asdasd \
+				-e MYSQL_PASSWORD=wasd \
+				-e MYSQL_ROOT_PASSWORD=wasd \
 				mariadb
 $ docker run -d --name servidor_wp \
 				--network red_wp \
@@ -112,15 +114,29 @@ $ docker run -d --name servidor_wp \
 				-e WORDPRESS_DB_NAME=bd_wp \
 				-p 80:80 \
 				wordpress
-
 ```
+
+![ej3.2](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej3.2.png)
+
+![ej3.3](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej3.3.png)
 
 
 
 ```bash
-$ docker ps
-
+$ docker ps -a
 ```
+
+![ej3.4](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej3.4.png)
+
+
+
+```bash
+$ docker stop contenedor_id1
+$ docker stop contenedor_id2
+$ docker start contenedor_id3
+```
+
+![ej3.5](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej3.5.png)
 
 
 
