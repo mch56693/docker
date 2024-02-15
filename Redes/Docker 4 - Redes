@@ -39,16 +39,46 @@ $ docker run -d -p 80:5000 --name guestbook --network red_guestbook iesgn/guestb
 $ docker network create red_temperaturas
 ```
 
+![ej2.1](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.1.png)
+
 
 
 ```bash
-$ docker run -d --name temperaturas-backend --network red_temperaturas
-iesgn/temperaturas_backend
+$ docker run -d --name temperaturas-backend --network red_temperaturas iesgn/temperaturas_backend
 $ docker run -d -p 80:3000 --name temperaturas-frontend --network
 red_temperaturas iesgn/temperaturas_frontend
 ```
 
+![ej2.2](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.2.png)
 
+![ej2.3](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.3.png)
+
+
+
+```bash
+$ docker ps -a
+```
+
+![ej2.4](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.4.png)
+
+
+
+```bash
+$ docker stop 99522529f430
+$ docker stop 4539c4657e12
+```
+
+![ej2.5](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.5.png)
+
+
+
+```bash
+$ docker start 77d77748f883
+```
+
+![ej2.6](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.6.png)
+
+![ej2.7](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej2.7.png)
 
 
 
