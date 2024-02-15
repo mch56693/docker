@@ -133,10 +133,19 @@ $ docker ps -a
 ```bash
 $ docker stop contenedor_id1
 $ docker stop contenedor_id2
-$ docker start contenedor_id3
+$ docker start contenedor_mariadb
 ```
 
 ![ej3.5](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej3.5.png)
+
+
+
+```bash
+$ docker start contenedor_wordpress
+$ docker ps
+```
+
+![ej3.6](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej3.6.png)
 
 
 
@@ -154,6 +163,8 @@ $ docker start contenedor_id3
 $ docker network create red_tomcat
 ```
 
+![ej4.1](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej4.1.png)
+
 
 
 ```bash
@@ -162,16 +173,22 @@ $ cd tomcat
 default.conf sample.war
 ```
 
+![ej4.2](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej4.2.png)
+
+![ej4.3](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej4.3.png)
+
 
 
 ```bash
 $ docker run -d --name aplicacionjava \
---network red_tomcat \
--v
-/home/vagrant/tomcat/sample.war:/usr/local/tomcat/webapps/sample.war:ro \
-tomcat:9.0
+				--network red_tomcat \
+				-v /home/vagrant/tomcat/sample.war:/usr/local/tomcat/webapps/sample.war:ro \ tomcat:9.0
 
 ```
+
+![ej4.4](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej4.4.png)
+
+
 
 
 
@@ -205,3 +222,8 @@ $ docker run -d --name proxy \
 nginx
 ```
 
+![ej4.5](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej4.5.png)
+
+
+
+![ej4.6](/home/cliente/GitKraken/docker/Redes/Imagenes D4 - Redes/ej4.6.png)
