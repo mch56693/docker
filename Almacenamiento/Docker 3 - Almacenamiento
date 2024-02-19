@@ -12,7 +12,7 @@
    $ docker volume cerate nombre_volumen
    ```
 
-   ![image-20240202092246259](Docker 3 - Almacenamiento.assets/image-20240202092246259.png)
+   ![ej1](Docker 3 - Almacenamiento.assets/ej1.png)
 
    
 
@@ -23,7 +23,7 @@
    $ docker run -d -p 80:80 -v nombre_contenedor:/var/www/html --name nombre_contenedor php:7.4-apache
    ```
 
-   ![ej2](Docker 3 - Almacenamiento.assets/ej2.png)
+   ![ej2](D3 - Almacenamiento/ej2.png)
 
    
 
@@ -33,15 +33,15 @@
    $ docker cp /ruta/index.html nombre_contenedor:/var/www/html/
    ```
 
-   ![ej3](Docker 3 - Almacenamiento.assets/ej3.png)
+   ![ej3](D3 - Almacenamiento/ej3.png)
 
-   ![ej3.1](Docker 3 - Almacenamiento.assets/ej3.1.png)
+   ![ej3.1](D3 - Almacenamiento/ej3.1.png)
 
    
 
 4. Accede al contenedor desde el navegador para ver la información ofrecida por el fichero index.html .
 
-   ![ej4](Docker 3 - Almacenamiento.assets/ej4.png)
+   ![ej4](D3 - Almacenamiento/ej4.png)
 
    
 
@@ -51,7 +51,7 @@
    $ docker rm -f nombre_volumen
    ```
 
-   ![ej5](Docker 3 - Almacenamiento.assets/ej5.png)
+   ![ej5](D3 - Almacenamiento/ej5.png)
 
    
 
@@ -61,13 +61,13 @@
    $ docker run -d -p 80:80 -v nombre_contenedor:/var/www/html --name nombre_contenedor php:7.4-apache
    ```
 
-   ![ej6](Docker 3 - Almacenamiento.assets/ej6.png)
+   ![ej6](D3 - Almacenamiento/ej6.png)
 
    
 
 7. Accede al contenedor desde el navegador para ver la información ofrecida por el fichero index.html . ¿Seguía existiendo ese fichero?
 
-   ![ej7](Docker 3 - Almacenamiento.assets/ej7.png)
+   ![ej7](D3 - Almacenamiento/ej7.png)
 
 ------
 
@@ -75,17 +75,40 @@
 
 1. Crea un directorio en tu host y dentro crea un fichero index.html.
 
+   ```bash
+   $ mkdir mi_directorio
+   $ echo "<html><body><h1>Hola, mundo!</h1></body></html>" > mi_directorio/index.html
+   ```
+
+   ![ej8](D3 - Almacenamiento/ej8.png)
+
+   ![ej9](D3 - Almacenamiento/ej9.png)
+
+   
+
+   ```bash
+   $ docker run -v $(pwd)/mi_directorio:/mi_directorio -it ubuntu:latest bash
+   ```
+
+   ![ej10](D3 - Almacenamiento/ej10.png)
+
    
 
    
 
 2. Crea un contenedor desde la imagen php:7.4-apache donde montes en el directorio /var/www/html el directorio que has creado por medio de bind mount.
 
-   
+   ```bash
+   $ docker run -d -p 8080:80 -v /ruta/a/tu/directorio:/var/www/html php:7.4-apache
+   ```
+
+   ![ej11](D3 - Almacenamiento/ej11.png)
 
    
 
 3. Accede al contenedor desde el navegador para ver la información ofrecida por el fichero index.html.
+
+   ![ej12](D3 - Almacenamiento/ej12.png)
 
    
 
@@ -93,13 +116,18 @@
 
 4. Modifica el contenido del fichero index.html en tu host y comprueba que al refrescar la página ofrecida por el contenedor, el contenido ha cambiado.
 
-   
+   ![ej13](D3 - Almacenamiento/ej13.png)
 
    
 
 5. Borra el contenedor.
 
-   
+   ```bash
+   $ docker stop contenedor
+   $ docker rm keen_lumiere
+   ```
+
+   ![ej14](D3 - Almacenamiento/ej14.png)
 
    
 
